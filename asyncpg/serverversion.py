@@ -12,7 +12,9 @@ def split_server_version_string(version_string):
     version_string = version_string.strip()
     if version_string.startswith('PostgreSQL '):
         version_string = version_string[len('PostgreSQL '):]
-
+        elif 'Postgres-XL' in version_string:
+        version_string = version_string[:5]
+        
     parts = version_string.strip().split('.')
     if not parts[-1].isdigit():
         # release level specified
